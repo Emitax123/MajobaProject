@@ -1,0 +1,25 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+<div id="model-cont">
+<div class="employee-cont">
+    <div id="model-content">
+        <div class="center-content" >
+            <span >{{ obj.name }} {{ obj.ape }} </span>
+            <img src="{{ obj.img.url }}" class="employee-img">
+        </div>
+        <div class="details">
+            <span>Telefono: {{ obj.phone }}</span>
+            <span>Correo: {{ obj.mail }}</span>
+            <span>Direccion: {{obj.dir }} </span>
+            <span>Posicion: {{obj.position }} </span>
+            <span>Sucursal. {{obj.sucursal }} </span>
+        </div>
+    </div>
+    
+</div>
+<a id="modify" style="margin: 20px 20px;padding-left: 60px;" href="{% url 'modify' type=obj.type id=obj.pk %}"><button  style="border-radius: 5px; font-size: 15px;">Modificar</button></a>
+    </a>
+</div>
+
+{% endblock %}

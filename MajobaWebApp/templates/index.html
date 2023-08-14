@@ -1,0 +1,66 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block content %}
+  
+<div class="card-container">
+    <div style="display: flex; flex-flow: row;">
+          <!-- Cartas -->
+        {% for Product in products%}
+        <a id="product-card-{{forloop.counter}}" class="mycard" href="{% url 'modelView' type=Product.type id=Product.pk %}">
+                <img src="{{ Product.img.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ Product.name }}</h5>
+                  <p class="card-text">{{ Product.price }}</p>
+                </div>
+        </a>
+        {% endfor %}
+        
+      </div>
+      {% if plenght == 4 %}
+        <a href="{% url 'list' id='Producto' %}">
+          <button class="grey"style="border-radius: 5px; max-height: 40px;">
+            Ver mas
+          </button>
+        </a>
+        {% endif %}
+        
+        
+</div>
+<!-- Fin cartas-->
+          
+
+<!--Carousel -->
+<div class="employee-container">
+  <div style="display: flex; flex-flow: row; margin-bottom: 20px;" >
+  {% for Employee in empl %}
+  
+    <a id="employee-card-{{forloop.counter}}" href="{% url 'modelView' type=Employee.type id=Employee.pk %}">
+      <div class="employee-card ">
+        <img src="{{ Employee.img.url}}" class="card-img-top" alt="...">
+          <div class="">
+          <h5 class="card-title">{{ Employee.name }}</h5>
+          <p class="card-text">{{ Employee.position }}</p> 
+          </div>
+      </div>
+    </a>
+   
+  {% endfor %}
+
+  </div>
+  {% if elenght == 4%}
+  <a  href="{% url 'list' id='Empleado' %}">
+  <button class="grey" style="border-radius: 5px; max-height: 40px;">
+    Ver mas
+  </button>
+  </a>
+  
+  {% endif %}   
+</div>
+
+          <div class="div2">
+
+            
+          </div>
+  <!-- Fin contenedor -->   
+  <script src="{% static 'MajobaWebApp/js/java.js' %}"></script>  
+{% endblock %}
