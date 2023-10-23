@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from .forms import EmployeeForm, UserForm, ProductForm, MachineForm, TaskForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-
 # views.py
 
 
